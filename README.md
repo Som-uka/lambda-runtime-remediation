@@ -1,6 +1,6 @@
 # Lambda Runtime Remediation
 
-Systematic upgrade of deprecated AWS Lambda runtimes across a production environment — migrating 100+ functions from end-of-life Node.js runtimes to nodejs20.x.
+Systematic upgrade of deprecated AWS Lambda runtimes across a production environment, migrating 100+ functions from end-of-life Node.js runtimes to nodejs20.x.
 
 ---
 
@@ -27,7 +27,7 @@ Left unaddressed, deprecated runtimes result in Lambda functions that can no lon
 
 ## Upgrade Approach
 
-### Step 1 — Audit All Functions
+### Step 1: Audit All Functions
 ```bash
 # List all Lambda functions and their runtimes
 aws lambda list-functions \
@@ -40,12 +40,12 @@ aws lambda list-functions \
   --output table
 ```
 
-### Step 2 — Assess Code Compatibility
+### Step 2: Assess Code Compatibility
 - Check for deprecated Node.js APIs in function code
 - Review package.json for outdated dependencies
 - Test in a dev/staging Lambda alias first
 
-### Step 3 — Update Runtime
+### Step 3: Update Runtime
 ```bash
 # Update a single function's runtime
 aws lambda update-function-configuration \
@@ -58,7 +58,7 @@ aws lambda get-function-configuration \
   --query '{Name:FunctionName,Runtime:Runtime}'
 ```
 
-### Step 4 — Validate
+### Step 4: Validate
 ```bash
 # Invoke function with test payload
 aws lambda invoke \
