@@ -113,3 +113,9 @@ lambda-runtime-remediation/
 - Bash
 
 > All function names and ARNs have been sanitized.
+
+
+## Architecture Diagram
+
+![Lambda Runtime Remediation Architecture](docs/diagrams/04_lambda-runtime-architecture.png)
+
